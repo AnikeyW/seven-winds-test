@@ -1,0 +1,31 @@
+.row{
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding: 0 11px;
+  color: white;
+}
+
+.column{
+  padding: 0 5px;
+  flex: 1;
+  input{
+    width: 100%;
+    background-color: #202124;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    height: 25px;
+    outline: none;
+    padding: 0 10px;
+    color: #71717a;
+    &:focus {
+      color: white;
+    }
+  }
+}
+.columnlevel{
+  flex: 0.5;
+}
+.projectname{
+  flex: 3;
+}

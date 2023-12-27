@@ -1,0 +1,19 @@
+.row{
+  display: flex;
+  height: 50px;
+  border-bottom: 1px solid var(--border-color);
+  align-items: center;
+  padding: 0 11px;
+  color: white;
+}
+
+.column{
+  padding: 0 5px;
+  flex: 1;
+}
+.columnlevel{
+  flex: 0.5;
+}
+.projectname{
+  flex: 3;
+}

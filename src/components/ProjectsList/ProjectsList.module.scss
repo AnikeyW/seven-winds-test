@@ -1,0 +1,50 @@
+.projectsblock{
+  width: 220px;
+  border-right: 1px solid var(--border-color);
+}
+.select{
+  display: flex;
+  height: 43px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 10px 0 20px;
+}
+.shortname{
+  font-size: 12px;
+}
+
+.arrowicon{
+  width: 13px;
+  height: 13px;
+  img{
+    width: 100%;
+  }
+}
+
+.list{
+
+}
+
+.item {
+  display: flex;
+  height: 32px;
+  align-items: center;
+  padding: 0 22px;
+  gap: 18px;
+  cursor: pointer;
+}
+
+.projicon{
+  width: 20px;
+  img{
+    width: 100%;
+  }
+}
+.name{
+  color: white;
+}
+
+.active {
+  background-color: #a1a1aa;
+}
