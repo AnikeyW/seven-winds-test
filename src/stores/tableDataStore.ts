@@ -1,19 +1,18 @@
 import { create } from "zustand";
 import { IRow } from "../types";
 import { addChildById, deleteRowById, updateRowById } from "../utils";
-import { Inputs } from "../components/CreateRow/CreateRow.tsx";
 import { immer } from "zustand/middleware/immer";
+import { InputsData } from "../components/CreateRow/CreateRow.types.ts";
 
 export const MYID = 116505;
-// export const MYID = 115117;
 
 interface TableDataStore {
   rows: IRow[];
   isLoading: boolean;
   fetchRows: () => void;
   deleteRow: (id: number) => void;
-  createRow: (parentId: number, data: Inputs, isFirstRow: boolean) => void;
-  updateRow: (rowId: number, data: Inputs) => void;
+  createRow: (parentId: number, data: InputsData, isFirstRow: boolean) => void;
+  updateRow: (rowId: number, data: InputsData) => void;
   createRowInit: (parentId: number) => void;
 }
 
@@ -71,7 +70,7 @@ export const useTableDataStore = create<TableDataStore>()(
     },
     createRow: async (
       parentId: number,
-      data: Inputs,
+      data: InputsData,
       isFirstRow: boolean,
     ): Promise<void> => {
       try {
@@ -110,7 +109,7 @@ export const useTableDataStore = create<TableDataStore>()(
         throw err;
       }
     },
-    updateRow: async (rowId: number, data: Inputs): Promise<void> => {
+    updateRow: async (rowId: number, data: InputsData): Promise<void> => {
       try {
         const res = await fetch(
           `http://185.244.172.108:8081/v1/outlay-rows/entity/${MYID}/row/${rowId}/update`,

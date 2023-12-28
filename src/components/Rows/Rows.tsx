@@ -1,11 +1,6 @@
 import React from "react";
 import Row from "../Row/Row.tsx";
-import { IRow } from "../../types";
-
-interface IRowsProps {
-  rows: IRow[];
-  nestedLevel?: number;
-}
+import { IRowsProps } from "./Rows.types.ts";
 
 const Rows: React.FC<IRowsProps> = ({ rows, nestedLevel = 0 }) => {
   return (

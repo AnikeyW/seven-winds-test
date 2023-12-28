@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./ProjectsList.module.scss";
 import arrow from "../../assets/arrow.png";
 import projIcon from "../../assets/proj-icon.png";
+
 const ProjectsList: React.FC = () => {
   const projectsList = [
     { id: 1, name: "По проекту" },
@@ -12,6 +13,7 @@ const ProjectsList: React.FC = () => {
     { id: 6, name: "График" },
     { id: 7, name: "МиМ" },
   ];
+
   return (
     <div className={styles.projectsblock}>
       <div className={styles.select}>

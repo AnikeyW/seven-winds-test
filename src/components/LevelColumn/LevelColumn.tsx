@@ -6,12 +6,7 @@ import deleteIcon from "../../assets/delete-icon.png";
 import styled from "styled-components";
 import { useTableDataStore } from "../../stores/tableDataStore.ts";
 import { IRow } from "../../types";
-
-interface ILevelColumnProps {
-  row: IRow;
-  nestedLevel: number;
-  isEditRow?: boolean;
-}
+import { ILevelColumnProps } from "./LevelColumn.types.ts";
 
 const LevelIcon = styled.div<{ $nestedLevel: number; $countTotalDesc: number }>`
   left: ${(props) => props.$nestedLevel > 0 && `${props.$nestedLevel * 18}px`};
@@ -52,13 +47,15 @@ const LevelColumn: React.FC<ILevelColumnProps> = ({
   const createRowInit = useTableDataStore((state) => state.createRowInit);
   const [isShowDeleteBtn, setIsShowDeleteBtn] = useState<boolean>(false);
 
-  const addRow = (id: number) => {
+  const addRowHandler = (id: number) => {
     if (isEditRow) return;
     createRowInit(id);
   };
+
   const deleteRowHandler = (id: number) => {
     deleteRow(id);
   };
+
   return (
     <>
       <LevelIcon
@@ -73,7 +70,7 @@ const LevelColumn: React.FC<ILevelColumnProps> = ({
           {!isShowDeleteBtn && <img src={rowIcon} alt="icon" />}
           {isShowDeleteBtn && (
             <div className={styles.addbutton}>
-              <img src={rowIconHover} alt="icon" onClick={() => addRow(row.id)} />
+              <img src={rowIconHover} alt="icon" onClick={() => addRowHandler(row.id)} />
               <img src={deleteIcon} alt="icon" onClick={() => deleteRowHandler(row.id)} />
             </div>
           )}

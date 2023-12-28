@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Row.module.scss";
 import LevelColumn from "../LevelColumn/LevelColumn.tsx";
-import { IRow } from "../../types";
 import CreateRow from "../CreateRow/CreateRow.tsx";
 import UpdateRow from "../UpdateRow/UpdateRow.tsx";
-
-interface IRowProps {
-  nestedLevel: number;
-  row: IRow;
-}
-enum Mode {
-  VIEW = "view",
-  CREATE = "create",
-  UPDATE = "update",
-}
+import { IRowProps, Mode } from "./Row.types.ts";
 
 const Row: React.FC<IRowProps> = ({ nestedLevel, row }) => {
   const [mode, setMode] = useState<Mode>(Mode.VIEW);

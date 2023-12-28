@@ -2,27 +2,14 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import styles from "./UpdateRow.module.scss";
 import LevelColumn from "../LevelColumn/LevelColumn.tsx";
-import { IRow } from "../../types";
 import { useTableDataStore } from "../../stores/tableDataStore.ts";
+import { InputsData } from "../CreateRow/CreateRow.types.ts";
+import { IUpdateRowProps } from "./UpdateRow.types.ts";
 
-interface IEditRowProps {
-  row: IRow;
-  nestedLevel: number;
-  resetMode: () => void;
-}
-
-export interface Inputs {
-  equipmentCosts: number;
-  estimatedProfit: number;
-  salary: number;
-  rowName: string;
-  supportCosts: number;
-}
-
-const UpdateRow: React.FC<IEditRowProps> = ({ row, nestedLevel, resetMode }) => {
-  const { register, handleSubmit } = useForm<Inputs>();
+const UpdateRow: React.FC<IUpdateRowProps> = ({ row, nestedLevel, resetMode }) => {
+  const { register, handleSubmit } = useForm<InputsData>();
   const updateRow = useTableDataStore((state) => state.updateRow);
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<InputsData> = (data) => {
     updateRow(row.id, data);
     resetMode();
   };

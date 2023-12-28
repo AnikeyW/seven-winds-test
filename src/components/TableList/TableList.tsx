@@ -4,10 +4,7 @@ import TitleRow from "../TitleRow/TitleRow.tsx";
 import Rows from "../Rows/Rows.tsx";
 import { IRow } from "../../types";
 import CreateRow from "../CreateRow/CreateRow.tsx";
-
-interface ITableListProps {
-  rows: IRow[];
-}
+import { ITableListProps } from "./TableList.types.ts";
 
 const firstRow: IRow = {
   child: null,
